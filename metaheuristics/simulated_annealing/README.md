@@ -179,7 +179,6 @@ O SA pode aceitar temporariamente um layout com menos vagas para abrir espaço �
 
 ## 9. Referências
 
-- **Bahiense, Laura.** *Metaheurísticas em Otimização Combinatória — Tema 4: Simulated Annealing (SA).* Material de aula, CPS783.
 - **Metropolis, N. et al.** (1953). *Equation of State Calculations by Fast Computing Machines*. Journal of Chemical Physics, 21, 1087–1092. DOI: [10.1063/1.1699114](https://doi.org/10.1063/1.1699114).
 - **Kirkpatrick, S.; Gelatt, C. D.; Vecchi, M. P.** (1983). *Optimization by Simulated Annealing*. Science, 220(4598), 671–680.
 - **Hajek, B.** (1988). *Cooling Schedules for Optimal Annealing*. Mathematics of Operations Research, 13(2), 311–329.
