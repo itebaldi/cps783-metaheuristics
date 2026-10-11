@@ -144,6 +144,9 @@ def gerar_solucao_inicial(itens: list[Item], capacidade_mochila: int) -> list[in
     solucao = [0] * len(itens)
     peso_atual = 0
     indices = list(range(len(itens)))
+
+    # O shuffle faz cada execução começar de um ponto diferente e evita que a ordem
+    # em que os itens estão na lista influencie a solução inicial.
     random.shuffle(indices)
 
     for i in indices:
@@ -184,9 +187,11 @@ def gerar_vizinho(
                 + itens[idx].peso
                 <= capacidade_mochila
             ):
+                # adiciona vizinho
                 vizinho[idx] = 1
                 return vizinho
         else:
+            # remove vizinho
             vizinho[idx] = 0
             return vizinho
 
