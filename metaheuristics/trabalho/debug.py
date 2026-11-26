@@ -163,6 +163,7 @@ class Debug:
         self.unidade = ""
         self.rotulos = ("", "")
         self.total: int | None = None
+        self._texto_avaliacoes = ""
         self.figuras = 0
         self._avisou = False
         self.ativo = False
@@ -198,6 +199,14 @@ class Debug:
         self.unidade = unidade
         self.rotulos = rotulos
         self.total = total
+        self._texto_avaliacoes = ""
+
+    def registrar_avaliacoes(self, realizadas: int, limite: int | None) -> None:
+        """Atualiza a contagem acumulada exibida no cabeçalho da figura."""
+        contagem = milhar(realizadas)
+        if limite is not None:
+            contagem += f"/{milhar(limite)}"
+        self._texto_avaliacoes = f" · soluções avaliadas ({contagem})"
 
     def inicio_iteracao(self, iteracao: int) -> None:
         """Marca o início de uma iteração e decide se ela será desenhada."""
@@ -261,7 +270,8 @@ class Debug:
             ax_grafo = fig.add_subplot(grade[1, 0])
             ax_historico = fig.add_subplot(grade[:, 1])
             fig.suptitle(
-                f"{self.metodo} · {self.unidade} {self.iteracao}{de_total}\n{texto}",
+                f"{self.metodo} · {self.unidade} {self.iteracao}{de_total}"
+                f"{self._texto_avaliacoes}\n{texto}",
                 x=0.01,
                 ha="left",
                 fontsize=11.5,
